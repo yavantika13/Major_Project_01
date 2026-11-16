@@ -1,0 +1,125 @@
+*, *::before, *::after { box-sizing: border-box; }
+img { max-width: 100%; }
+
+:root {
+  --navy: #0b2a5b;
+  --navy-light: #1d4690;
+  --accent: #e8590c;
+  --bg: #f3f6fb;
+  --text: #1c2433;
+  --border: #dde3ee;
+}
+
+.admin { display: flex; 
+  min-height: 100vh; 
+  width: 100%; 
+  background: var(--bg); 
+  color: var(--text); 
+  font-family: system-ui, sans-serif; 
+  text-align: left; }
+
+.sidebar { width: 220px; 
+  background: var(--navy); 
+  color: #fff; 
+  padding: 20px 12px; 
+  display: flex; 
+  flex-direction: column; 
+  gap: 6px; }
+.sidebar h3 { margin: 0 0 16px 8px; 
+  font-size: 18px; }
+
+.tab { background: none; 
+  border: 0; 
+  color: #cfd9ee; 
+  text-align: left; 
+  padding: 10px 12px; 
+  border-radius: 8px; 
+  cursor: pointer; 
+  font-size: 15px; }
+.tab:hover { background: rgba(255, 255, 255, .1); 
+  color: #fff; }
+.tab.active { background: var(--navy-light); 
+  color: #fff; }
+.content { flex: 1; padding: 24px; min-width: 0; }
+.content h2 { margin-top: 0; }
+.section-title { margin: 28px 0 0; }
+
+.card { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 16px; }
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 14px; }
+.stat { text-align: left; }
+.stat .num { font-size: 30px; font-weight: 700; color: var(--navy); }
+
+.table-wrap { overflow-x: auto; margin-top: 14px; }
+table { width: 100%; border-collapse: collapse; background: #fff; border: 1px solid var(--border); }
+th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--border); font-size: 14px; white-space: nowrap; }
+th { background: #eaf0fa; }
+
+.btn { border: 0; padding: 8px 14px; border-radius: 8px; cursor: pointer; font-size: 14px; }
+.btn.primary { background: var(--navy); color: #fff; }
+.btn.danger { background: #c0392b; color: #fff; }
+.btn.link { background: none; color: var(--navy-light); padding: 0; text-decoration: underline; }
+.btn:disabled { opacity: .6; cursor: not-allowed; }
+
+.inline-form { display: flex; gap: 10px; flex-wrap: wrap; }
+.inline-form input, .inline-form select { padding: 8px; border: 1px solid var(--border); border-radius: 8px; flex: 1; min-width: 120px; }
+
+.filters { display: flex; gap: 8px; margin: 10px 0; flex-wrap: wrap; }
+.chip { padding: 6px 14px; border-radius: 20px; border: 1px solid var(--border); background: #fff; cursor: pointer; text-transform: capitalize; }
+.chip.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+.badge { padding: 3px 10px; border-radius: 12px; font-size: 12px; text-transform: capitalize; }
+.badge.pending { background: #fff1e0; color: #b45309; }
+.badge.approved { background: #d9f2e1; color: #1e6b32; }
+.badge.rejected { background: #f8d7da; color: #8a1f2b; }
+.muted { color: #888; }
+
+/* Community form */
+.form-card { max-width: 560px; margin: 24px auto; display: flex; flex-direction: column; gap: 14px; text-align: left; }
+.form-card h2 { margin: 0; color: var(--navy); }
+.form-card label { display: flex; flex-direction: column; gap: 6px; font-weight: 600; font-size: 14px; }
+.form-card input, .form-card select, .form-card textarea { padding: 10px; border: 1px solid var(--border); border-radius: 8px; font: inherit; font-weight: 400; }
+.form-card .btn.primary { padding: 12px; font-weight: 600; }
+.err { color: #c0392b; font-weight: 400; font-size: 13px; }
+.preview { max-width: 100%; max-height: 220px; object-fit: cover; border-radius: 10px; }
+
+/* ===== Responsive (order important: bada breakpoint pehle, chhota baad mein) ===== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .admin .sidebar { width: 180px; }
+  .content { padding: 18px; }
+}
+
+/* Phone: sidebar upar, poori width mein */
+@media (max-width: 700px) {
+  .admin { flex-direction: column; }
+
+  .admin .sidebar {
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 4px;
+    padding: 8px;
+    overflow: visible;
+  }
+  .admin .sidebar h3 { display: none; }
+
+  .admin .tab {
+    flex: 1 1 auto;
+    text-align: center;
+    padding: 8px 6px;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+
+  .content { width: 100%; padding: 14px; }
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  .form-card { margin: 12px; }
+  .inline-form input,
+  .inline-form select,
+  .inline-form .btn { width: 100%; flex: none; }
+  th, td { padding: 8px; font-size: 13px; }
+  .btn { padding: 10px 14px; }
+}
+
+/* .sidebar { background: red !important; } */
