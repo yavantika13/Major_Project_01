@@ -1,0 +1,43 @@
+.heritage-card {
+  position: relative;
+  height: 200px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #1e293b;
+  cursor: pointer;
+  border: 1px solid #1e293b;
+  transition: border-color 0.3s, transform 0.3s;
+}
+
+.heritage-card:hover {
+  border-color: #ff7b00;
+  transform: translateY(-4px);
+}
+
+.heritage-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.heritage-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.2) 60%, transparent 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 16px;
+}
+
+.heritage-card-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 2px;
+}
+
+.heritage-card-location {
+  font-size: 13px;
+  color: #cbd5e1;
+}
